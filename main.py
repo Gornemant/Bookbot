@@ -1,4 +1,5 @@
-
+#Ch3 L2: Arguments
+import sys
 #Ch2 L5: Refactor, count_words function moved to stats.py
 from stats import count_words, count_characters, sort_characters
 
@@ -18,7 +19,15 @@ def main():
     num_words = 0
     num_characters = {}
     sorted_character_list = []
-    book_content = get_book_text("./books/frankenstein.txt")
+    #Ch3 L2: replace hard coded path with argument
+    #book_content = get_book_text("./books/frankenstein.txt")
+    book_path = ""
+    #Exits program if no argument was given
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    book_path = sys.argv[1]
+    book_content = get_book_text(book_path)
 
     #Ch2 L3: print book content
     #print(book_content)
@@ -35,7 +44,8 @@ def main():
     #    print(f"'{char}': {counted}")
 
     #Ch3 L1: Print a report
-    print(f"============ BOOKBOT ============" + "\n" + "Analyzing book found at books/frankenstein.txt..." + "\n" + "----------- Word Count ----------")
+    print(f"============ BOOKBOT ============")
+    print(f"Analyzing book found at {book_path}..." + "\n" + "----------- Word Count ----------")
     print(f"Found {num_words} total words" + "\n" + "--------- Character Count -------")
     sorted_character_list = sort_characters(num_characters)
     for entry in sorted_character_list:
