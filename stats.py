@@ -1,4 +1,4 @@
-#Ch2 L4: Count words in book
+#Ch2 L4: Count the number of words in povided string
 def count_words(text):
     word_list = []
     number_of_words = 0
@@ -6,7 +6,7 @@ def count_words(text):
     number_of_words = len(word_list)
     return number_of_words
 
-#Ch2 L5: Count Characters
+#Ch2 L5: Count the number of characters in provided string, returns dictionary
 def count_characters(text):
     char_dict = {}
     #Convert to lower case

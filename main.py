@@ -12,7 +12,7 @@ def get_book_text(file_path):
         return file_contents
     except Exception as e:
         print(f"Error encountered: {e}")
-        return "Error opening file."
+        sys.exit("Encountered an error while trying to open the file, please verify the file path.")
 
 def main():
     book_content = ""
